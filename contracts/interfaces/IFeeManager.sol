@@ -2,5 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface IFeeManager {
-    function handleFee(address from, uint256 amount) external returns (uint256);
+    function handleMintFee(address minter, uint256 feeAmount) external returns (uint256);
+    function handleBurnFee(address from, uint256 feeAmount) external returns (uint256);
 }

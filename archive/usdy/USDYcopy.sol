@@ -7,9 +7,9 @@ import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol"
 import "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
-import "contracts/usdy/BlocklistClientUpgradeable.sol";
-import "contracts/usdy/AllowlistClientUpgradeable.sol";
-import "contracts/usdy/SanctionsListClientUpgradeable.sol";
+import "contracts/archive/BlocklistClientUpgradeable.sol";
+import "contracts/archive/AllowlistClientUpgradeable.sol";
+import "contracts/archive/SanctionsListClientUpgradeable.sol";
 
 contract KRWC is
     Initializable,
@@ -181,18 +181,18 @@ contract KRWC is
         _grantRole(role, account);
     }
 
-    function _removeDust(uint256 amount) internal pure override(OFTCore, TransferLimiter) returns (uint256) {
-        return amount;
-    }
+    // function _removeDust(uint256 amount) internal pure override(OFTCore, TransferLimiter) returns (uint256) {
+    //     return amount;
+    // }
 
-    function _debit(
-        address from,
-        uint256 amountLD,
-        uint256 minAmountLD,
-        uint32 dstEid
-    ) internal override returns (uint256, uint256) {
-        uint256 cleaned = _removeDust(amountLD);
-        _checkAndUpdateTransferLimit(dstEid, cleaned, from);
-        return super._debit(from, amountLD, minAmountLD, dstEid);
-    }
+    // function _debit(
+    //     address from,
+    //     uint256 amountLD,
+    //     uint256 minAmountLD,
+    //     uint32 dstEid
+    // ) internal override returns (uint256, uint256) {
+    //     uint256 cleaned = _removeDust(amountLD);
+    //     _checkAndUpdateTransferLimit(dstEid, cleaned, from);
+    //     return super._debit(from, amountLD, minAmountLD, dstEid);
+    // }
 }

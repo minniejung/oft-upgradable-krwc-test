@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import { TransferLimit } from "./types/TransferLimitTypes.sol";
+import { TransferLimit } from "contracts/types/TransferLimitTypes.sol";
 
 abstract contract TransferLimiter {
     mapping(uint32 => TransferLimit) public transferLimitConfigs;
@@ -49,7 +49,8 @@ abstract contract TransferLimiter {
         lastUserUpdatedTime[dstEid][user] = block.timestamp;
     }
 
-    function _removeDust(uint256 value) internal pure virtual returns (uint256) {
+    // override in KRWC contract
+    function _removeDust(uint256 value) internal view virtual returns (uint256) {
         return value; // 정제 로직 필요시 구현
     }
 }

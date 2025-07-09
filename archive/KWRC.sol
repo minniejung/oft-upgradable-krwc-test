@@ -6,8 +6,8 @@ import { OFTUpgradeable } from "@layerzerolabs/oft-evm-upgradeable/contracts/oft
 import { OFTCore } from "@layerzerolabs/oft-evm/contracts/OFTCore.sol";
 import { AccessControl } from "@openzeppelin/contracts/access/AccessControl.sol";
 import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
-import { TransferLimiter, TransferLimit } from "./TransferLimiter.sol";
-import { IFeeManager } from "./interfaces/IFeeManager.sol";
+import { TransferLimiter, TransferLimit } from "contracts/KRWC/TransferLimiter.sol";
+import { IFeeManager } from "contracts/interfaces/IFeeManager.sol";
 import { Pausable } from "@openzeppelin/contracts/utils/Pausable.sol";
 
 contract KWRC is TransferLimiter, AccessControl, Ownable, OFT, Pausable, OFTUpgradeable, OwnableUpgradeable {

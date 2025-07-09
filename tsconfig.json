@@ -9,6 +9,13 @@
     "strict": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "types": ["chai", "mocha", "node", "@nomicfoundation/hardhat-chai-matchers"]
+    "types": [
+      "chai",
+      "mocha",
+      "node",
+      "@nomicfoundation/hardhat-chai-matchers",
+      "@openzeppelin/hardhat-upgrades",
+      "hardhat"
+    ]
   }
 }

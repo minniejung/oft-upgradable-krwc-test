@@ -4,6 +4,7 @@ import '@nomiclabs/hardhat-ethers'
 import 'hardhat-deploy'
 import '@layerzerolabs/devtools-evm-hardhat'
 import '@layerzerolabs/test-devtools-evm-hardhat'
+import '@openzeppelin/hardhat-upgrades'
 
 import { HardhatUserConfig } from 'hardhat/config'
 
@@ -12,13 +13,26 @@ const accounts = PRIVATE_KEY ? [PRIVATE_KEY] : []
 
 const config: HardhatUserConfig = {
     solidity: {
-        version: '0.8.22',
-        settings: {
-            optimizer: {
-                enabled: true,
-                runs: 200,
+        compilers: [
+            {
+                version: '0.8.20',
+                settings: {
+                    optimizer: {
+                        enabled: true,
+                        runs: 200,
+                    },
+                },
             },
-        },
+            {
+                version: '0.8.22', // for OZ v5 modules
+                settings: {
+                    optimizer: {
+                        enabled: true,
+                        runs: 200,
+                    },
+                },
+            },
+        ],
     },
     networks: {
         hardhat: {
